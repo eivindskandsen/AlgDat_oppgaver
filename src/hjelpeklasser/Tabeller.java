@@ -1,8 +1,21 @@
 package hjelpeklasser;
 
+
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class Tabeller {
+
+    public static void main(String[] args) {
+
+
+        double[] d = {5.7,3.14,7.12,3.9,6.5,7.1,7.11};
+
+        Double [] c= new Double[d.length];
+
+        for (int i=0; i<c.length; i++)
+            c[i]=d[i];
+    }
 
 
     private Tabeller(){
@@ -159,6 +172,90 @@ public class Tabeller {
         }
         return m;  // returnerer posisjonen til største verdi
     }
+    public static int maksChar(char[] a)     // legges i class Tabell
+    {
+        int m = 0;                           // indeks til største verdi
+        char maksverdi = a[0];             // største verdi
 
-    
+        for (int i = 1; i < a.length; i++) if (a[i] > maksverdi)
+        {
+            maksverdi = a[i];     // største verdi oppdateres
+            m = i;                // indeks til største verdi oppdaters
+        }
+        return m;     // returnerer posisjonen til største verdi
+    }
+    public static int maksInteger(Integer[] a)     // legges i class Tabell
+    {
+        int m = 0;                           // indeks til største verdi
+        Integer maksverdi = a[0];             // største verdi
+
+        for (int i = 1; i < a.length; i++) if (a[i] > maksverdi)
+        {
+            maksverdi = a[i];     // største verdi oppdateres
+            m = i;                // indeks til største verdi oppdaters
+        }
+        return m;     // returnerer posisjonen til største verdi
+    }
+
+    public static <T extends Comparable<? super T>> void innsettingssortering(T[] a) {
+        for (int i = 1; i < a.length; i++)  // starter med i = 1
+        {
+            T verdi = a[i];        // verdi er et tabellelemnet
+            int  j = i - 1;        // j er en indeks
+            // sammenligner og forskyver:
+            for (; j >= 0 && verdi.compareTo(a[j]) < 0 ; j--) a[j+1] = a[j];
+
+            a[j + 1] = verdi;      // j + 1 er rett sortert plass
+        }
+    }
+    public static void skriv(Object[] a, int fra, int til){
+        for(int i=fra; i<til; i++){
+            System.out.print(a[i]);
+            if(i<til-1){
+                System.out.print(" ");
+            }
+
+        }
+    }
+
+    public static void skrivUtHele(Object[]a){
+
+        skriv(a,0,a.length);
+    }
+
+    public static void skrivLn(Object[]a, int fra, int til) {
+        for (int i = fra; i < til; i++) {
+            System.out.println(a[i]);
+            if (i == til - 1) {
+                System.out.println("\n");
+            }
+        }
+    }
+        public static void skrivLnHele(Object[]a){
+            skrivLn(a,0,a.length);
+
+    }
+
+    public static void byttObject(Object[]a, int i, int j){
+         Object temp=a[i];
+         a[i]=a[j];
+         a[j]=temp;
+    }
+
+    public static Integer[] randPermInteger(int n)
+    {
+        Integer[] a = new Integer[n];               // en Integer-tabell
+        Arrays.setAll(a, i -> i + 1);               // tallene fra 1 til n
+
+        Random r = new Random();   // hentes fra  java.util
+
+        for (int k = n - 1; k > 0; k--)
+        {
+            int i = r.nextInt(k+1);  // tilfeldig tall fra [0,k]
+            byttObject(a,k,i);             // bytter om
+        }
+        return a;  // tabellen med permutasjonen returneres
+    }
+
+
 }

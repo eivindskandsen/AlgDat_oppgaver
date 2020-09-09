@@ -33,15 +33,47 @@ public class Main {
 
         Tabeller.maks(a,0,20);  */
 
-        int[] a = {5,2,7,3,9,1,8,4,6};
+        /* int[] a = {5,2,7,3,9,1,8,4,6};
         double[] d = {5.7,3.14,7.12,3.9,6.5,7.1,7.11};
         String[] s = {"Sohil","Per","Thanh","Fatima","Kari","Jasmin"};
+        char[] t="JASMIN".toCharArray();
+        Integer[]e={5,7,34,5,7,9};
 
         int k = Tabeller.maks(a);     // posisjonen til den største i a
         int l = Tabeller.maksDouble(d);     // posisjonen til den største i d
         int m = Tabeller.maksString(s);     // posisjonen til den største i s
+        int n=Tabeller.maksChar(t);
+        int o=Tabeller.maksInteger(e);
 
-        System.out.println(a[k] + "  " + d[l] + "  " + s[m]);
+        System.out.println(a[k] + "  " + d[l] + "  " + s[m]+" "+t[n]+" "+e[o]);
+
+        Integer A=8;
+        Integer B=8;
+        System.out.println(A.compareTo(B));
+
+        String q="Tomat";
+        String z="Appelsin";
+
+        System.out.println(q.compareTo(z));
+
+        System.out.println(Boolean.compare(true, false));
+
+        String[] u = {"Per","Kari","Ole","Anne","Ali","Eva"};
+        Tabeller.innsettingssortering(s);
+        System.out.println(Arrays.toString(u));  // [Ali, Anne, Eva, Kari, Ole, Per]
+
+         */
+
+        Integer[] a = Tabeller.randPermInteger(20);
+        System.out.println(Arrays.toString(a));
+        // En mulig utskrift: [7, 1, 8, 2, 10, 3, 4, 6, 5, 9]
+
+        Tabeller.innsettingssortering(a);
+        System.out.println(Arrays.toString(a));
+        // Utskrift: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+
 
     } // main
 
