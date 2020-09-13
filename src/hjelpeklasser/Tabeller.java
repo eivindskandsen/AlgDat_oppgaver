@@ -89,6 +89,8 @@ public class Tabeller {
         return maks(a,0,a.length);     // kaller metoden over
     }
 
+    //public static int maks()
+
     public static void skriv(int [] a, int fra, int til){
         for(int i=fra; i<til;i++){
             System.out.print(a[i]);
@@ -256,6 +258,20 @@ public class Tabeller {
         }
         return a;  // tabellen med permutasjonen returneres
     }
+
+    public static <T extends Comparable<? super T>> int maks(T[] a)
+    {
+        int m = 0;                     // indeks til største verdi
+        T maksverdi = a[0];            // største verdi
+
+        for (int i = 1; i < a.length; i++) if (a[i].compareTo(maksverdi) > 0)
+        {
+            maksverdi = a[i];  // største verdi oppdateres
+            m = i;             // indeks til største verdi oppdaters
+        }
+        return m;  // returnerer posisjonen til største verdi
+    } // maks
+
 
 
 }

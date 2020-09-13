@@ -1,5 +1,6 @@
 package com.company;
 
+import eksempelklasser.enfirefire;
 import hjelpeklasser.Tabeller;
 
 import java.util.ArrayList;
@@ -72,6 +73,13 @@ public class Main {
         System.out.println(Arrays.toString(a));
         // Utskrift: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+
+            int[] h = {5,2,7,3,9,1,8,10,4,6};          // en int-tabell
+            enfirefire.Heltall[] j = new enfirefire.Heltall[h.length];       // en Heltall-tabell
+
+            for (int i = 0; i < h.length; i++) j[i] = new enfirefire.Heltall(a[i]);
+            Tabeller.innsettingssortering(j);           // generisk sortering
+            System.out.println(Arrays.toString(j));   // utskrift
 
 
 
